@@ -5,7 +5,7 @@ The script prepares parameter groups, enables logical replication on the source,
 
 ---
 
-## 🚀 Features
+## Features
 
 1. Prompts interactively for the **target engine version**.  
 2. Verifies that the target version is available in the chosen AWS Region.  
@@ -18,7 +18,7 @@ The script prepares parameter groups, enables logical replication on the source,
 
 ---
 
-## 🧰 Requirements
+## Requirements
 
 - **Bash**, **AWS CLI**, **jq**
 - AWS credentials with permissions:
@@ -31,7 +31,7 @@ The script prepares parameter groups, enables logical replication on the source,
 
 ---
 
-## ⚙️ Inputs
+## Inputs
 
 Environment variables can be preset or entered interactively.
 
@@ -43,7 +43,7 @@ Environment variables can be preset or entered interactively.
 
 ---
 
-## 🖥️ Usage
+## Usage
 
 ```bash
 # Make executable
@@ -63,7 +63,7 @@ You will see clearly numbered steps, confirmation prompts, and real-time cluster
 
 ---
 
-## 🧩 Step Overview
+## Step Overview
 
 1. **Discover cluster details**  
    Confirms Region, current engine version, and verifies that the target version exists.
@@ -89,7 +89,7 @@ You will see clearly numbered steps, confirmation prompts, and real-time cluster
 
 ---
 
-## 🛡️ Safety and Idempotency
+## Safety and Idempotency
 
 - **Re-runnable**: If a Blue/Green deployment already exists, it is reused.  
 - **Wait loops** with clear timeouts and error messages.  
@@ -98,7 +98,7 @@ You will see clearly numbered steps, confirmation prompts, and real-time cluster
 
 ---
 
-## 🧾 Exit Codes
+## Exit Codes
 
 | Code | Meaning |
 |------|----------|
@@ -108,7 +108,7 @@ You will see clearly numbered steps, confirmation prompts, and real-time cluster
 
 ---
 
-## 🧩 Related Scripts
+## Related Scripts
 
 - `aurora-bg-switchover.sh`: Perform only the switchover step.  
 - `clean_unused_pg.sh`: Detect and clean unused parameter groups.  
@@ -117,7 +117,7 @@ You will see clearly numbered steps, confirmation prompts, and real-time cluster
 
 ---
 
-## 🧰 Troubleshooting
+## Troubleshooting
 
 | Issue | Fix |
 |-------|-----|
@@ -128,7 +128,7 @@ You will see clearly numbered steps, confirmation prompts, and real-time cluster
 
 ---
 
-## ⚠️ Disclaimer
+## Disclaimer
 
 Use at your own risk.  
 Test in a **staging environment** before applying to production.  
