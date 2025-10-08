@@ -3,8 +3,6 @@
 `aurora-bg-upgrade.sh` automates an Aurora PostgreSQL Blue/Green deployment for in-place major or minor upgrades with minimal downtime.  
 The script prepares parameter groups, enables logical replication on the source, creates or reuses a Blue/Green deployment, waits for synchronization, presents endpoints for validation, then performs a controlled switchover.
 
----
-
 ## Features
 
 1. Prompts interactively for the **target engine version**.  
@@ -15,8 +13,6 @@ The script prepares parameter groups, enables logical replication on the source,
 6. Prints Green writer and reader endpoints for testing before switchover.  
 7. Performs the **switchover** and optionally deletes the Blue/Green “wrapper” while keeping the clusters.  
 8. Includes health checks, progress output, and timeouts.
-
----
 
 ## Requirements
 
@@ -29,7 +25,6 @@ The script prepares parameter groups, enables logical replication on the source,
   - `rds:CreateDBClusterSnapshot`, `rds:DescribeDBClusterSnapshots`
 - Network access to AWS RDS APIs in your Region
 
----
 
 ## Inputs
 
@@ -41,7 +36,6 @@ Environment variables can be preset or entered interactively.
 | `CLUSTER_ID` | Aurora cluster identifier | `my-prod-cluster` |
 | `TARGET_VERSION` | Target Aurora PostgreSQL engine version | `15.4` |
 
----
 
 ## Usage
 
@@ -60,8 +54,6 @@ REGION=us-east-1 CLUSTER_ID=my-aurora TARGET_VERSION=15.4 ./aurora-bg-upgrade.sh
 ```
 
 You will see clearly numbered steps, confirmation prompts, and real-time cluster status updates.
-
----
 
 ## Step Overview
 
@@ -87,7 +79,6 @@ You will see clearly numbered steps, confirmation prompts, and real-time cluster
 7. **Cleanup (optional)**  
    Optionally deletes only the Blue/Green wrapper, preserving clusters.
 
----
 
 ## Safety and Idempotency
 
@@ -95,8 +86,6 @@ You will see clearly numbered steps, confirmation prompts, and real-time cluster
 - **Wait loops** with clear timeouts and error messages.  
 - **Safe parameter group application order** to minimize downtime.  
 - **Pre-upgrade snapshot** prompt for rollback safety.
-
----
 
 ## Exit Codes
 
@@ -106,16 +95,12 @@ You will see clearly numbered steps, confirmation prompts, and real-time cluster
 | `99` | Trapped error (line and command shown) |
 | Non-zero | AWS CLI error codes |
 
----
-
 ## Related Scripts
 
 - `aurora-bg-switchover.sh`: Perform only the switchover step.  
 - `clean_unused_pg.sh`: Detect and clean unused parameter groups.  
 - `revert_to_previous_parameter_group.sh`: Reattach a previous parameter group after rollback.  
 - `bg-upgrade.sh`: Alternative entry point for specific environments.
-
----
 
 ## Troubleshooting
 
@@ -126,7 +111,6 @@ You will see clearly numbered steps, confirmation prompts, and real-time cluster
 | **Blue/Green stuck** | Inspect with `aws rds describe-blue-green-deployments` and fix configuration before re-running. |
 | **Push to GitHub rejected (non-fast-forward)** | Run `git pull --rebase origin main` then `git push`. |
 
----
 
 ## Disclaimer
 
