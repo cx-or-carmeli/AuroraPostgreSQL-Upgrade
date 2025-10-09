@@ -405,4 +405,4 @@ else
   warn "Wrapper not deleted"
 fi
 
-say "${C_BOLD}${C_GREEN}DONE${C_RESET}  Production now runs on Aurora PostgreSQL ${C_BOLD}${TARGET_VERSION}${C_RESET}"
+printf "${C_BOLD}${C_GREEN}DONE${C_RESET}  Production now runs on Aurora PostgreSQL ${C_BOLD}${TARGET_VERSION}${C_RESET}\n"
